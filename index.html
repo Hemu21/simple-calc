@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calc</title>
+	<style>
+		html{
+			background-color: black;
+		}
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		h1{
+			margin: auto;
+			color: blue;
+			font-size: 120px;
+			text-align: center;
+		}
+		.main{
+			margin:auto;
+			width: 400px;
+			height: 500px;
+			border: 5px solid black;
+			background-color: grey;
+			position: relative;
+		}
+		#take{
+			margin: auto;
+			width:97%;
+			height: 50px;
+			font-size: 30px;	
+			position: absolute;
+			left: 4px;
+			top: 10px;	
+		}
+		.numb{
+			width: 97%;
+			height: 400px; 
+			position: absolute;
+			left: 9px;
+			top: 80px;	
+		}
+		.num{
+			width: 85px;
+			height: 80px;
+			background-color: black;
+			color: white;
+			margin: 5px;
+			float: left;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+<h1>Simple Calc<h1>
+<br/>
+<div class="main" >
+	<input id="take" type="text" readonly="" />
+	<div class="numb" >
+		<input class="num" type="button" value="1" onclick="send('1')" />
+		<input class="num" type="button" value="2" onclick="send('2')" />
+		<input class="num" type="button" value="3" onclick="send('3')" />
+		<input class="num" type="button" value="+" onclick="send('+')" />
+		<input class="num" type="button" value="4" onclick="send('4')" />
+		<input class="num" type="button" value="5" onclick="send('5')" />
+		<input class="num" type="button" value="6" onclick="send('6')" />
+		<input class="num" type="button" value="-" onclick="send('-')" />
+		<input class="num" type="button" value="7" onclick="send('7')" />
+		<input class="num" type="button" value="8" onclick="send('8')" />
+		<input class="num" type="button" value="9" onclick="send('9')" />
+		<input class="num" type="button" value="x" onclick="send('*')" />
+		<input class="num" type="button" value="DEL" onclick="send('del')" />
+		<input class="num" type="button" value="0" onclick="send('0')" />
+		<input class="num" type="button" value="=" onclick="send('=')" />
+		<input class="num" type="button" value="/" onclick="send('/')" />	
+	</div>
+</div>
+<br/>
+</body>
+<script type="text/javascript" >
+	var exp = '';
+	function send(ele){
+		if (ele!='=' && ele!='del'){
+			exp += ele;
+			document.getElementById('take').value = exp;
+		}
+		else if (ele=='='){
+			exp=eval(exp);
+			document.getElementById('take').value = exp;	
+		}
+		else{
+			exp='';
+			document.getElementById('take').value = exp;	
+		}
+ 	}
+	
+</script>
+</html>
